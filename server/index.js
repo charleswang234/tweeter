@@ -8,10 +8,10 @@ const bodyParser    = require("body-parser");
 const app           = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static("public")); // "public" specifies the root directory to serve static assets
 
-// The in-memory database of tweets. It's a basic object with an array in it.
-const db = require("./lib/in-memory-db");
+// The in-memory "database" of tweets. It's a basic object with an array in it.
+const db = require("./lib/in-memory-db"); // am array of objects, aka the database
 
 // The `data-helpers` module provides an interface to the database of tweets.
 // This simple interface layer has a big benefit: we could switch out the
@@ -20,14 +20,14 @@ const db = require("./lib/in-memory-db");
 //
 // Because it exports a function that expects the `db` as a parameter, we can
 // require it and pass the `db` parameter immediately:
-const DataHelpers = require("./lib/data-helpers.js")(db);
+const DataHelpers = require("./lib/data-helpers.js")(db);  // returns an object of functions saveTweet and getTweets
 
 // The `tweets-routes` module works similarly: we pass it the `DataHelpers` object
 // so it can define routes that use it to interact with the data layer.
-const tweetsRoutes = require("./routes/tweets")(DataHelpers);
+const tweetsRoutes = require("./routes/tweets")(DataHelpers); //consists of the routes
 
 // Mount the tweets routes at the "/tweets" path prefix:
-app.use("/tweets", tweetsRoutes);
+app.use("/tweets", tweetsRoutes); // only requests to /tweets/* will be sent to our "router"
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
