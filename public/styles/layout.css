@@ -31,6 +31,9 @@ body {
   background-color: white;
   width: 450px;
   height: -webkit-fill-available;
-  /*text-align: center;*/
 
+}
+
+#tweets-container {
+  width: 450px;
 }

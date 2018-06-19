@@ -2,19 +2,17 @@
 
 .new-tweet {
   background-color: #eee;
-  margin: auto;
+/*  margin: auto;*/
   margin-left: 2em;
   margin-right: 2em;
   border-radius: 5px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #cecdcc;
+  border: 1px solid #cecdcc;
   padding-left: 0.5em;
   padding-right: 0.5em;
   padding-bottom: 0.5em;
 }
 
-h2:after {
+section.new-tweet h2:after {
   content:' ';
   display:block;
   border: 0.5px solid black;
