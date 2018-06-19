@@ -3,8 +3,12 @@
 // makes sure DOM is fully loaded
 $(document).ready(function() {
   $('.new-tweet textarea').keyup(function() {
-    var multipleValues = 140 - $(".new-tweet textarea").val().length;
-    console.log(multipleValues);
+    var $textarea = $(this);
+    var charactersLeft = 140 - $textarea.val().length
+    console.log(charactersLeft);
+
+    // console.log($textarea.parent());
+    console.log($textarea.next().children('.counter').html(charactersLeft));
   });
 });
 
