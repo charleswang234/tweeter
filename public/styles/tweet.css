@@ -6,7 +6,7 @@
   margin: 2em 2em 0em 2em;
   border: 1px solid #cecdcc;
   border-radius: 5px;
-  top: 0;
+/*  top: 0;*/
   overflow: hidden;
   opacity: 0.8;
 }
@@ -39,7 +39,7 @@ article.tweet footer {
   border-top: 0.5px solid #d6d6d6;
 }
 
-article.tweet footer p {
+article.tweet .date-stamp {
   float: left;
   font-size: 0.8em;
   margin-top: 0.2em;

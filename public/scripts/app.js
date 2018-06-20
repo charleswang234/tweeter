@@ -85,7 +85,7 @@ function createTweetElement(tweetObject) {
   $header.append($("<h2>" + tweetObject.user.name + "</h2>")); // Username
   $header.append($("<p>").addClass("at-person").text(tweetObject.user.handle)); // the @ sign
 
-  $footer.append($("<p>").text(tweetObject["created_at"])); // the date
+  $footer.append($("<p>").addClass("date-stamp").text(tweetObject["created_at"])); // the date
 
   // add all the icons to the footer
   $footer.append($("<i>").addClass("fa fa-flag"));
@@ -94,22 +94,15 @@ function createTweetElement(tweetObject) {
   return $tweet;
 }
 
-
-// var $tweet = createTweetElement(tweetData);
-
-// Test / driver code (temporary)
-// console.log($tweet); // to see what it looks like
-
 function renderTweets(arrayOfTweets) {
   for (let i = 0; i < arrayOfTweets.length; ++i) {
     let $tweet = createTweetElement(arrayOfTweets[i]);
-    $('#tweets-container').append($tweet);
+    $('#tweets-container').append($tweet); //append is costly, change later when have time
   }
 }
 
 
 $(document).ready(function() {
-  // $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
   renderTweets(data);
 });
 
