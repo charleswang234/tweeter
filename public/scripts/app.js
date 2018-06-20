@@ -71,7 +71,7 @@ $(document).ready(function() {
       url: '/tweets/',
       data: $(this).serialize() // turns form data into query string
     }).done(function (tweet) {
-      console.log(tweet);
+      $('.new-tweet textarea').val("");
       loadTweets();
     });
   });

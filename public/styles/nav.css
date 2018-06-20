@@ -26,3 +26,20 @@
   font-size: 2em;
   line-height: 240%;
 }
+
+#nav-bar .buttons .compose {
+  float: right;
+  font-size: 1em;
+  color: #00a087;
+  border-radius: 5px;
+  border: 0.5px solid #000000;
+  background-color: #eafffb;
+  width: 100px;
+  height: 50px;
+  margin-top: 15px;
+}
+
+#nav-bar .buttons .compose:hover {
+  color: #000000;
+  background-color: #ffffff;
+}
