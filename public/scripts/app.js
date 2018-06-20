@@ -17,6 +17,8 @@ function createTweetElement(tweetObject) {
   $header.append($("<h2>" + tweetObject.user.name + "</h2>")); // Username
   $header.append($("<p>").text(tweetObject.user.handle).addClass("add-person")); // the @ sign
 
+  $footer.append($("<p>").text(tweetObject["created_at"])); // the date
+  // add all the icons to the footer
   $footer.append($("<i>").addClass("fa fa-flag"));
   $footer.append($("<i>").addClass("fa fa-heart"));
   $footer.append($("<i>").addClass("fa fa-retweet"));
