@@ -17,7 +17,7 @@
   opacity: 1;
 }
 
-.tweet:hover .icon-list {
+.tweet:hover .fa {
   display: inline-block;
 }
 
@@ -64,7 +64,7 @@ article.tweet .tweet-text {
 
 }
 
-article.tweet .icon-list {
+article.tweet .fa {
   float: right;
   padding: 0.2em 0.2em 0.5em 0.2em;
   display: none;
