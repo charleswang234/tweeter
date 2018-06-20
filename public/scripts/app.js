@@ -36,11 +36,9 @@ function renderTweets(arrayOfTweets) {
   }
 }
 
-
-
-
 $(document).ready(function() {
 
+  $('.container .new-tweet').hide(); // hides the new tweets form
   loadTweets();
 
   // get request to get all the tweets using ajax a
@@ -56,7 +54,8 @@ $(document).ready(function() {
 
   // toggles the new tweets form
   $('.buttons .compose').on('click',function(event) {
-    $('.container .new-tweet').slideToggle("slow");
+    $('.container .new-tweet').slideToggle("slow"); //slides and toggles
+    $('.container .new-tweet textarea').select(); // auto select the textarea
   });
 
   $('.new-tweet form').on('submit', function(event) {
