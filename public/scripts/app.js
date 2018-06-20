@@ -29,9 +29,10 @@ function createTweetElement(tweetObject) {
 
 // appends all tweets to the tweet's container
 function renderTweets(arrayOfTweets) {
+  $('#tweets-container').empty();
   for (let i = 0; i < arrayOfTweets.length; ++i) {
     let $tweet = createTweetElement(arrayOfTweets[i]);
-    $('#tweets-container').append($tweet); //append is costly, change later when have time
+    $('#tweets-container').prepend($tweet); //append is costly, change later when have time
   }
 }
 
@@ -52,7 +53,7 @@ $(document).ready(function() {
     });
   };
 
-
+  loadTweets();
 
 
   $('.new-tweet form').on('submit', function(event) {
@@ -69,10 +70,11 @@ $(document).ready(function() {
       method: 'POST',  // http request
       url: '/tweets/',
       data: $(this).serialize() // turns form data into query string
-    }).done(function () {
-        console.log("what");
+    }).done(function (tweet) {
+      console.log(tweet);
+      loadTweets();
     });
   });
-  loadTweets();
+
 });
 
