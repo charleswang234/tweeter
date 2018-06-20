@@ -1,7 +1,6 @@
 
 #tweets-container {
 
-
 }
 
 .tweet {
@@ -10,6 +9,16 @@
   border-radius: 5px;
   top: 0;
   overflow: hidden;
+  opacity: 0.8;
+}
+
+
+.tweet:hover {
+  opacity: 1;
+}
+
+.tweet:hover .icon-list {
+  display: inline-block;
 }
 
 article.tweet .profile-pic {
@@ -27,19 +36,37 @@ article.tweet header {
 }
 
 article.tweet footer {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding: 0.5em 0.5em 0.5em 0.5em;
   border-top: 0.5px solid #d6d6d6;
+}
+
+article.tweet footer p {
+  float: left;
+  font-size: 0.8em;
+  margin-top: 0.2em;
+  margin-bottom: 1em;
+
 }
 
 article.tweet h2 {
   float: left;
-  color: #546591;
   margin: 0em 0em 0em 0em;
 }
 
-article.tweet h5 {
+article.tweet .at-person {
   float: right;
-  color: #afafaf;
+  font-size: 0.8em;
   margin: 0.5em 0.3em 0em 0em;
 }
+
+article.tweet .tweet-text {
+  padding-left: 1em;
+
+}
+
+article.tweet .icon-list {
+  float: right;
+  padding: 0.2em 0.2em 0.5em 0.2em;
+  display: none;
+}
+
