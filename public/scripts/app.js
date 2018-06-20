@@ -94,7 +94,7 @@ function createTweetElement(tweetObject) {
   return $tweet;
 }
 
-
+// appends all tweets to the tweet's container
 function renderTweets(arrayOfTweets) {
   for (let i = 0; i < arrayOfTweets.length; ++i) {
     let $tweet = createTweetElement(arrayOfTweets[i]);
@@ -103,8 +103,23 @@ function renderTweets(arrayOfTweets) {
 }
 
 
+
+
+
 $(document).ready(function() {
-  renderTweets(data);
+
+  function loadTweets () {
+    $.ajax({
+      url: '/tweets/',
+      method: 'GET',
+      success: function (jsonTweets) {
+          renderTweets(jsonTweets);
+      }
+    });
+  };
+
+
+
 
   $('.new-tweet form').on('submit', function(event) {
     event.preventDefault();  // prevents form submission
@@ -115,6 +130,6 @@ $(document).ready(function() {
     }).done(function () {
     });
   });
-
+  loadTweets();
 });
 
