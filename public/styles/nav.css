@@ -29,14 +29,14 @@
 
 #nav-bar .buttons .compose {
   float: right;
-  font-size: 1em;
+  font-size: 1.2em;
   color: #00a087;
   border-radius: 5px;
-  border: 0.5px solid #000000;
+  border: 0.8px solid #000000;
   background-color: #eafffb;
-  width: 100px;
-  height: 50px;
-  margin-top: 15px;
+  width: 110px;
+  height: 60px;
+  margin-top: 10px;
 }
 
 #nav-bar .buttons .compose:hover {

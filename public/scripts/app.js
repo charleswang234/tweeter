@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-function createTweetElement(tweetObject) {
+ function createTweetElement(tweetObject) {
   let $tweet = $("<article>").addClass("tweet"); // the article
   let $header = $("<header>"); // footer element
   let $footer = $("<footer>"); // header element
@@ -41,6 +41,7 @@ function renderTweets(arrayOfTweets) {
 
 $(document).ready(function() {
 
+  loadTweets();
 
   // get request to get all the tweets using ajax a
   function loadTweets () {
@@ -49,12 +50,14 @@ $(document).ready(function() {
       method: 'GET',
       success: function (jsonTweets) {
           renderTweets(jsonTweets);  //                         UNSURE IF CORRECT
-      }
-    });
+        }
+      });
   };
 
-  loadTweets();
-
+  // toggles the new tweets form
+  $('.buttons .compose').on('click',function(event) {
+    $('.container .new-tweet').slideToggle("slow");
+  });
 
   $('.new-tweet form').on('submit', function(event) {
     event.preventDefault();  // prevents form submission
@@ -66,7 +69,7 @@ $(document).ready(function() {
         alert("You have entered past the maximum characters!");
         return;
       }
-    $.ajax({
+      $.ajax({
       method: 'POST',  // http request
       url: '/tweets/',
       data: $(this).serialize() // turns form data into query string
