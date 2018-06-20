@@ -94,6 +94,7 @@ function createTweetElement(tweetObject) {
   return $tweet;
 }
 
+
 function renderTweets(arrayOfTweets) {
   for (let i = 0; i < arrayOfTweets.length; ++i) {
     let $tweet = createTweetElement(arrayOfTweets[i]);
@@ -104,5 +105,16 @@ function renderTweets(arrayOfTweets) {
 
 $(document).ready(function() {
   renderTweets(data);
+
+  $('.new-tweet form').on('submit', function(event) {
+    event.preventDefault();  // prevents form submission
+    $.ajax({
+      method: 'POST',  // http request
+      url: '/tweets/',
+      data: $(this).serialize() // turns form data into query string
+    }).done(function () {
+    });
+  });
+
 });
 
