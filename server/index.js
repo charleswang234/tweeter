@@ -22,6 +22,7 @@ app.use(nodeSassMiddleware({
   src: path.join(__dirname, '../src'),
   dest: path.join(__dirname, '../public/styles'),
   debug: true,
+  prefix: '/styles',
   outputStyle: 'compressed'
 }));
 
