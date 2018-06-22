@@ -11,7 +11,20 @@ const app           = express();
 const MongoClient = require("mongodb").MongoClient;
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
+
+// sass middleware
+const nodeSassMiddleware = require('node-sass-middleware');
+const path = require('path'); // allows you to work with file and directory paths
+
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(nodeSassMiddleware({
+  src: path.join(__dirname, '../public/styles'),
+  src: path.join(__dirname, '../public'),
+  debug: true,
+  outputStyle: 'compressed'
+}));
+
 app.use(express.static("public")); // "public" specifies the root directory to serve static assets
 
 
