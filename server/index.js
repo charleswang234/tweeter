@@ -14,9 +14,10 @@ const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public")); // "public" specifies the root directory to serve static assets
 
-// The in-memory "database" of tweets. It's a basic object with an array in it.
-const db = null;
+
+// connect to MongoDB
 MongoClient.connect(MONGODB_URI, function(err, db) {
+  // if error occurs
   if (err) {
     console.error(`Failed to connect: ${MONGODB_URI}`);
     throw err;

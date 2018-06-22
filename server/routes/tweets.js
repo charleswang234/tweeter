@@ -8,6 +8,7 @@ const tweetsRoutes  = express.Router(); // creates a new object that allows it t
 
 module.exports = function(DataHelpers) {
 
+  // route to tweets/
   tweetsRoutes.get("/", function(req, res) {
     DataHelpers.getTweets((err, tweets) => {
       if (err) {
@@ -18,6 +19,7 @@ module.exports = function(DataHelpers) {
     });
   });
 
+  // posting a new tweet
   tweetsRoutes.post("/", function(req, res) {  // can add HTTP method routes to the object
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});

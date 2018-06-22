@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// creates a single tweet jquery object
  function createTweetElement(tweetObject) {
   let $tweet = $("<article>").addClass("tweet"); // the article
   let $header = $("<header>"); // footer element
@@ -15,7 +16,7 @@
 
   $header.append($("<img>" ).addClass("profile-pic").attr("src", tweetObject.user.avatars.small)); // adds profile pic
   $header.append($("<h2>" + tweetObject.user.name + "</h2>")); // Username
-  $header.append($("<p>").addClass("at-person").text(tweetObject.user.handle)); // the @ sign
+  $header.append($("<p>").addClass("handle").text(tweetObject.user.handle)); // the @ sign
 
   $footer.append($("<p>").addClass("date-stamp").text(moment(tweetObject["created_at"]).fromNow())); // the date
 
@@ -36,6 +37,8 @@ function renderTweets(arrayOfTweets) {
   }
 }
 
+
+// makes sure dom is fully loaded
 $(document).ready(function() {
 
   $('.container .new-tweet').hide(); // hides the new tweets form
@@ -47,7 +50,7 @@ $(document).ready(function() {
       url: '/tweets/',
       method: 'GET',
       success: function (jsonTweets) {
-          renderTweets(jsonTweets);  //                         UNSURE IF CORRECT
+          renderTweets(jsonTweets);
         }
       });
   };
@@ -60,9 +63,9 @@ $(document).ready(function() {
 
   $('.new-tweet form').on('submit', function(event) {
     event.preventDefault();  // prevents form submission
-    let numberCharacters = $('.new-tweet textarea').val().length; // COULD MAKE MORE EFFICIENT
+    let numberCharacters = $('.new-tweet textarea').val().length;
       if (!numberCharacters) { // if no characters are entered
-        alert("You have not entered anything.");                  // CHANGE TO MAKE LOOK BETTER
+        alert("You have not entered anything.");
         return;
       } else if (numberCharacters > 140) { // if number of characters is exceeded
         alert("You have entered past the maximum characters!");
