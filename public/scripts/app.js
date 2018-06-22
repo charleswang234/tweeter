@@ -17,7 +17,7 @@
   $header.append($("<h2>" + tweetObject.user.name + "</h2>")); // Username
   $header.append($("<p>").addClass("at-person").text(tweetObject.user.handle)); // the @ sign
 
-  $footer.append($("<p>").addClass("date-stamp").text(tweetObject["created_at"])); // the date
+  $footer.append($("<p>").addClass("date-stamp").text(moment(tweetObject["created_at"]).fromNow())); // the date
 
   // add all the icons to the footer
   $footer.append($("<i>").addClass("fa fa-flag"));
