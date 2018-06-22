@@ -19,13 +19,13 @@ const path = require('path'); // allows you to work with file and directory path
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(nodeSassMiddleware({
-  src: path.join(__dirname, '../public/styles'),
-  src: path.join(__dirname, '../public'),
+  src: path.join(__dirname, '../src'),
+  dest: path.join(__dirname, '../public/styles'),
   debug: true,
   outputStyle: 'compressed'
 }));
 
-app.use(express.static("public")); // "public" specifies the root directory to serve static assets
+app.use(express.static(path.join(__dirname, "../public"))); // "public" specifies the root directory to serve static assets
 
 
 // connect to MongoDB
